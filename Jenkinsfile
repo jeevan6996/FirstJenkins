@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'python:3.5.1' } }
     options {
         skipStagesAfterUnstable()
     }
@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
+                sh 'python --version'
             }
         }
         stage('Test') {
